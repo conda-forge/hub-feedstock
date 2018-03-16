@@ -28,7 +28,7 @@ test:
     - hub version
 
 about:
-  home: http://github.com/github/hub
+  home: https://github.com/github/hub
   license: MIT
   license_family: MIT
   license_file: LICENSE
@@ -37,7 +37,7 @@ about:
   description: |
     hub is a command line tool that wraps git in order to extend it with
     extra features and commands that make working with GitHub easier.
-  dev_url: https://github.com/gitub/hub
+  dev_url: https://github.com/github/hub
 
 extra:
   recipe-maintainers:

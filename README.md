@@ -1,7 +1,7 @@
 About hub
 =========
 
-Home: http://github.com/github/hub
+Home: https://github.com/github/hub
 
 Package license: MIT
 
