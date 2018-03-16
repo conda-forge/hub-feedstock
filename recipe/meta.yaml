@@ -28,7 +28,7 @@ test:
     - hub version
 
 about:
-  home: http://github.com/github/hub
+  home: https://github.com/github/hub
   license: MIT
   license_family: MIT
   license_file: LICENSE
