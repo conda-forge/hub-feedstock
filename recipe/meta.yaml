@@ -1,6 +1,6 @@
 {% set name = "hub" %}
-{% set version = "2.4.0" %}
-{% set sha256 = "894eb112be9aa0464fa2c63f48ae8e573ef9e32a00bad700e27fd09a0cb3be4b" %}
+{% set version = "2.5.0" %}
+{% set sha256 = "8e3bda092ddc81eaf208c5fd2b87f66e030012129d55fa631635c6adf8437941" %}
 
 package:
   name: {{ name|lower }}
