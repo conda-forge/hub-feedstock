@@ -24,4 +24,6 @@ else
        mkdir -p $PREFIX/etc/conda/${i}.d
        cp $RECIPE_DIR/${i}.sh $PREFIX/etc/conda/${i}.d/${PKG_NAME}.sh
    done
+
+   cp etc/hub*completion* $PREFIX/etc
 fi
