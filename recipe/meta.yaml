@@ -10,6 +10,7 @@ source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://github.com/github/{{ name }}/archive/v{{ version }}.tar.gz
   sha256: {{ sha256 }}
+  folder: src/github.com/github/hub
 
 build:
   number: 0
@@ -31,7 +32,7 @@ about:
   home: https://github.com/github/hub
   license: MIT
   license_family: MIT
-  license_file: LICENSE
+  license_file: src/github.com/github/hub/LICENSE
   summary: 'git + hub = github'
 
   description: |
