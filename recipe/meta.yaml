@@ -1,6 +1,5 @@
 {% set name = "hub" %}
-{% set version = "2.4.0" %}
-{% set sha256 = "894eb112be9aa0464fa2c63f48ae8e573ef9e32a00bad700e27fd09a0cb3be4b" %}
+{% set version = "2.5.0" %}
 
 package:
   name: {{ name|lower }}
@@ -9,7 +8,8 @@ package:
 source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://github.com/github/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  sha256: 8e3bda092ddc81eaf208c5fd2b87f66e030012129d55fa631635c6adf8437941
+  folder: src/github.com/github/hub
 
 build:
   number: 0
@@ -31,7 +31,7 @@ about:
   home: https://github.com/github/hub
   license: MIT
   license_family: MIT
-  license_file: LICENSE
+  license_file: src/github.com/github/hub/LICENSE
   summary: 'git + hub = github'
 
   description: |
@@ -42,3 +42,4 @@ about:
 extra:
   recipe-maintainers:
     - sodre
+    - asford

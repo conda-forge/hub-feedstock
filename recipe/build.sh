@@ -4,7 +4,10 @@ set windows=
 if [[ $OS == Windows* ]]; then
     windows=1
     export PATH=${LIBRARY_BIN}:$PATH
+else
+    export GOPATH=${SRC_DIR}
 fi
+pushd $GOPATH/src/github.com/github/hub
 
 script/build
 chmod +x script/install.sh
