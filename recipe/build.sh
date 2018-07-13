@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+# Prepare GOPATH layout for build:
+# https://github.com/github/hub/issues/1779
+export GOPATH=`pwd`
+mkdir -p src/github.com/github
+ln -s `pwd` src/github.com/github/hub
+
 set windows=
 if [[ $OS == Windows* ]]; then
     windows=1
