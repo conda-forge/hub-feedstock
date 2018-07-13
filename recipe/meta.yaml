@@ -1,6 +1,5 @@
 {% set name = "hub" %}
 {% set version = "2.5.0" %}
-{% set sha256 = "8e3bda092ddc81eaf208c5fd2b87f66e030012129d55fa631635c6adf8437941" %}
 
 package:
   name: {{ name|lower }}
@@ -9,7 +8,7 @@ package:
 source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://github.com/github/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  sha256: 8e3bda092ddc81eaf208c5fd2b87f66e030012129d55fa631635c6adf8437941
   folder: src/github.com/github/hub
 
 build:
@@ -43,3 +42,4 @@ about:
 extra:
   recipe-maintainers:
     - sodre
+    - asford
