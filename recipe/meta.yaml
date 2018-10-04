@@ -12,7 +12,7 @@ source:
   folder: src/github.com/github/hub
 
 build:
-  number: 0
+  number: 1000
 
 requirements:
   build:
