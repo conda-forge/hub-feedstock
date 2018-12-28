@@ -1,5 +1,5 @@
 {% set name = "hub" %}
-{% set version = "2.6.1" %}
+{% set version = "2.7.0" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://github.com/github/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 3a78f7fc8a024cc232463c664fecf0b49574f5205a49f2320886763c136ac000
+  sha256: 58d131c32404c963b06bcc067bda14317bc22be26187026a91960aecda324bf4
   folder: src/github.com/github/hub
 
 build:
