@@ -1,18 +1,15 @@
 #!/usr/bin/env bash
+pushd $GOPATH/src/github.com/github/hub
 
 set windows=
 if [[ $OS == Windows* ]]; then
     windows=1
     export PATH=${LIBRARY_BIN}:$PATH
-else
-    export GOPATH=${SRC_DIR}
 fi
-pushd $GOPATH/src/github.com/github/hub
 
 script/build
 chmod +x script/install.sh
 
-export prefix=$PREFIX
 if [ ! -z ${windows} ]; then
    mkdir -p $LIBRARY_BIN
    cp bin/hub.exe $LIBRARY_BIN

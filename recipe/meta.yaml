@@ -16,15 +16,12 @@ build:
 
 requirements:
   build:
-    - {{ compiler('c') }}
-    - go >=1.8
+    - {{ compiler('go-nocgo') }}
   host:
     - posix  # [win]
-  run:
 
 test:
   commands:
-    - conda inspect linkages -p $PREFIX {{ name }}  # [not win]
     - hub version
 
 about:
