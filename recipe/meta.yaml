@@ -39,7 +39,7 @@ test:
   requires:
     - m2-grep  # [ win ]
   commands:
-    - bash -c "hub version | grep -q {{ name }} version {{ version }}"
+    - bash -c "hub version | grep -q '{{ name }} version {{ version }}'"
 
 about:
   home: https://github.com/github/hub
