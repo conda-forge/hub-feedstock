@@ -1,28 +1,45 @@
-{% set name = "hub" %}
+{% set goname = "github.com/github/hub" %}
 {% set version = "2.7.0" %}
+
+{% set name = goname.split('/')[-1] %}
+{% set pkg_src = ('src/'+goname).replace("/",os.sep) %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
-  url: https://github.com/github/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 58d131c32404c963b06bcc067bda14317bc22be26187026a91960aecda324bf4
-  folder: src/github.com/github/hub
+  - folder: {{ pkg_src }}
+    url: https://{{ goname }}/archive/v{{ version }}.tar.gz
+    sha256: 58d131c32404c963b06bcc067bda14317bc22be26187026a91960aecda324bf4
 
 build:
   number: 1000
+  script:
+    - |
+      bash -c "
+        for F in activate deactivate; do
+          mkdir -p $PREFIX/etc/conda/\$F.d
+          cp -v $RECIPE_DIR/\$F.sh $PREFIX/etc/conda/\$F.d/hub.sh
+        done"
+
+    - pushd {{ pkg_src }}
+    - go install -v .
+
+    - mkdir -p $PREFIX/etc/bash_completion.d
+    - cp etc/hub.bash_completion.sh
+        $PREFIX/etc/bash_completion.d/hub.sh
 
 requirements:
   build:
-    - {{ compiler('go-nocgo') }}
-  host:
-    - posix  # [win]
+    - {{ compiler('go') }}
+    - m2-coreutils
 
 test:
+  requires:
+    - m2-grep
   commands:
-    - hub version
+    - bash -c "hub version | grep -q {{ name }} version {{ version }}"
 
 about:
   home: https://github.com/github/hub
