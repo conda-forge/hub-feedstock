@@ -21,19 +21,20 @@ build:
 
     # Note the semicolons
     -
-      bash -euf -c '                                      # [ win ]
+      bash -euf -c '                                         # [ win ]
         etc_conda=$PREFIX/etc/conda;
         for F in activate deactivate; do
           mkdir -p $etc_conda/$F.d;
           cp -v $RECIPE_DIR/$F.sh $etc_conda/$F.d/hub.sh;
+          cp -v $RECIPE_DIR/$F.ps1 $etc_conda/$F.d/hub.ps1;  # [win]
         done;
         mkdir -p
-          $PREFIX/etc/bash_completion.d;                  # [unix]
-          $LIBRARY_PREFIX/etc/bash_completion.d;          # [win]
+          $PREFIX/etc/bash_completion.d;                 # [unix]
+          $LIBRARY_PREFIX/etc/bash_completion.d;         # [win]
         cp etc/hub.bash_completion.sh
-          $PREFIX/etc/bash_completion.d/hub.sh;           # [unix]
-          $LIBRARY_PREFIX/etc/bash_completion.d/hub.sh;   # [win]
-      '                                                   # [win]
+          $PREFIX/etc/bash_completion.d/hub.sh;          # [unix]
+          $LIBRARY_PREFIX/etc/bash_completion.d/hub.sh;  # [win]
+      '                                                  # [win]
 
 requirements:
   build:
@@ -49,7 +50,9 @@ test:
       bash -euf -c "                                              # [win]
         hub version | grep -q '{{ name }} version {{ version }}';
         test -f $PREFIX/etc/conda/activate.d/hub.sh;
+        test -f $PREFIX/etc/conda/activate.d/hub.ps1;             # [win]
         test -f $PREFIX/etc/conda/deactivate.d/hub.sh;
+        test -f $PREFIX/etc/conda/deactivate.d/hub.ps1;           # [win]
         test -f $PREFIX/etc/bash_completion.d/hub.sh;             # [unix]
         test -f $LIBRARY_PREFIX/etc/bash_completion.d/hub.sh;     # [win]
       "                                                           # [win]
