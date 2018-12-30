@@ -20,7 +20,8 @@ build:
     - go install -v .
 
     # Note the semicolons
-    - bash -euf -c "
+    -
+      bash -euf -c '                                      # [ win ]
         etc_conda=$PREFIX/etc/conda;
         for F in activate deactivate; do
           mkdir -p $etc_conda/$F.d;
@@ -32,7 +33,7 @@ build:
         cp etc/hub.bash_completion.sh
           $PREFIX/etc/bash_completion.d/hub.sh;           # [unix]
           $LIBRARY_PREFIX/etc/bash_completion.d/hub.sh;   # [win]
-      "
+      '                                                   # [win]
 
 requirements:
   build:
@@ -44,13 +45,14 @@ test:
   requires:
     - m2-grep  # [ win ]
   commands:
-    - bash -euf -c "
+    -
+      bash -euf -c "                                              # [win]
         hub version | grep -q '{{ name }} version {{ version }}';
         test -f $PREFIX/etc/conda/activate.d/hub.sh;
         test -f $PREFIX/etc/conda/deactivate.d/hub.sh;
         test -f $PREFIX/etc/bash_completion.d/hub.sh;             # [unix]
         test -f $LIBRARY_PREFIX/etc/bash_completion.d/hub.sh;     # [win]
-      "
+      "                                                           # [win]
 
 about:
   home: https://github.com/github/hub
