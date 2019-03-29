@@ -1,5 +1,5 @@
 {% set goname = "github.com/github/hub" %}
-{% set version = "2.10.1" %}
+{% set version = "2.11.0" %}
 
 {% set name = goname.split('/')[-1] %}
 {% set pkg_src = ('src/'+goname).replace("/",os.sep) %}
@@ -11,7 +11,7 @@ package:
 source:
   - folder: {{ pkg_src }}
     url: https://{{ goname }}/archive/v{{ version }}.tar.gz
-    sha256: d0c0c0632180f6bbb1e451f1369e88157ae19f40229dfd8bee5bde6b75f4536f
+    sha256: 65ebc6e9521147dff04513e9b4a1e733241cd0ab93a61446795ad9fe537b87f2
 
 build:
   number: 0
