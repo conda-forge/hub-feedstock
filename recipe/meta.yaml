@@ -21,20 +21,18 @@ build:
 
     # Note the semicolons
     - >-
-      bash -euf -c '                                         # [ win ]
+      bash -euf -c '                                           # [ win ]
         etc_conda=$PREFIX/etc/conda;
+        etc_completion=$PREFIX/etc/bash_completion.d;          # [unix]
+        etc_completion=$LIBRARY_PREFIX/etc/bash_completion.d;  # [win]
         for F in activate deactivate; do
           mkdir -p $etc_conda/$F.d;
           cp -v $RECIPE_DIR/$F.sh $etc_conda/$F.d/hub.sh;
-          cp -v $RECIPE_DIR/$F.ps1 $etc_conda/$F.d/hub.ps1;  # [win]
+          cp -v $RECIPE_DIR/$F.ps1 $etc_conda/$F.d/hub.ps1;    # [win]
         done;
-        mkdir -p
-          $PREFIX/etc/bash_completion.d;                 # [unix]
-          $LIBRARY_PREFIX/etc/bash_completion.d;         # [win]
-        cp etc/hub.bash_completion.sh
-          $PREFIX/etc/bash_completion.d/hub.sh;          # [unix]
-          $LIBRARY_PREFIX/etc/bash_completion.d/hub.sh;  # [win]
-      '                                                  # [win]
+        mkdir -p $etc_completion;
+        cp etc/hub.bash_completion.sh $etc_completion/hub.sh;
+      '                                                        # [win]
 
 requirements:
   build:
