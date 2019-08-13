@@ -39,6 +39,8 @@ requirements:
     - {{ compiler('go') }}
     - m2-coreutils  # [ win ]
     - m2-bash  # [win]
+  run_constrained:
+    - git >=1.7.3
 
 test:
   requires:
@@ -47,8 +49,7 @@ test:
   commands:
     - >-
       bash -euf -c "                                           # [win]
-        hub version
-          | grep -q '{{ name }} version {{ version }}';
+        hub version | grep -q '{{ name }} version {{ version }}';
         etc_conda=$PREFIX/etc/conda;
         for F in activate deactivate; do
           test -r $etc_conda/$F.d/hub.sh;
