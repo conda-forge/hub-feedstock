@@ -20,7 +20,7 @@ build:
     - go install -v .
 
     # Note the semicolons
-    -
+    - >-
       bash -euf -c '                                         # [ win ]
         etc_conda=$PREFIX/etc/conda;
         for F in activate deactivate; do
@@ -46,7 +46,7 @@ test:
   requires:
     - m2-grep  # [ win ]
   commands:
-    -
+    - >-
       bash -euf -c "                                           # [win]
         hub version
           | grep -q '{{ name }} version {{ version }}';
