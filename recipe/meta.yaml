@@ -42,6 +42,7 @@ requirements:
 
 test:
   requires:
+    - git
     - m2-grep  # [ win ]
   commands:
     - >-
