@@ -21,6 +21,8 @@ requirements:
     - {{ compiler('go') }}
 
 test:
+  requires:
+    - git
   commands:
     - hub --help
     - hub version
