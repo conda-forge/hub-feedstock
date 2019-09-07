@@ -1,6 +1,6 @@
 setlocal enabledelayedexpansion
 
-pushd github.com\github\hub
+pushd src\github.com\github\hub
 go install -v .
 
 rem Copy activate/deactivate scripts

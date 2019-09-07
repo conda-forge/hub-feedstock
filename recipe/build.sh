@@ -1,6 +1,6 @@
 set -eu
 
-pushd github.com/github/hub
+pushd src/github.com/github/hub
 go install -v .
 
 # Copy activate/deactivate scripts
