@@ -39,12 +39,13 @@ build:
 requirements:
   build:
     - {{ compiler('go') }}
-    - m2-coreutils  # [ win ]
+    - m2-coreutils  # [win]
     - m2-bash  # [win]
 
 test:
   requires:
-    - m2-grep  # [ win ]
+    - m2-grep  # [win]
+    - posix  # [win]
   commands:
     -
       bash -euf -c "                                           # [win]
