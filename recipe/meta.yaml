@@ -19,26 +19,11 @@ build:
 requirements:
   build:
     - {{ compiler('go') }}
-    - m2-coreutils  # [win]
-    - m2-bash  # [win]
 
 test:
-  requires:
-    - m2-grep  # [win]
-    - posix  # [win]
   commands:
-    -
-      bash -euf -c "                                           # [win]
-        hub version
-          | grep -q '{{ name }} version {{ version }}';
-        etc_conda=$PREFIX/etc/conda;
-        for F in activate deactivate; do
-          test -r $etc_conda/$F.d/hub.sh;
-          test -f $etc_conda/$F.d/hub.ps1;                     # [win]
-        done;
-        test -r $PREFIX/etc/bash_completion.d/hub.sh;          # [unix]
-        test -r $LIBRARY_PREFIX/etc/bash_completion.d/hub.sh;  # [win]
-      "                                                        # [win]
+    - hub --help
+    - hub version
 
 about:
   home: https://github.com/github/hub
