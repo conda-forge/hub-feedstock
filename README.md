@@ -71,6 +71,7 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-hub-green.svg)](https://anaconda.org/conda-forge/hub) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/hub.svg)](https://anaconda.org/conda-forge/hub) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/hub.svg)](https://anaconda.org/conda-forge/hub) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/hub.svg)](https://anaconda.org/conda-forge/hub) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-hub--alias-green.svg)](https://anaconda.org/conda-forge/hub-alias) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/hub-alias.svg)](https://anaconda.org/conda-forge/hub-alias) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/hub-alias.svg)](https://anaconda.org/conda-forge/hub-alias) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/hub-alias.svg)](https://anaconda.org/conda-forge/hub-alias) |
 
 Installing hub
 ==============
@@ -81,10 +82,10 @@ Installing `hub` from the `conda-forge` channel can be achieved by adding `conda
 conda config --add channels conda-forge
 ```
 
-Once the `conda-forge` channel has been enabled, `hub` can be installed with:
+Once the `conda-forge` channel has been enabled, `hub, hub-alias` can be installed with:
 
 ```
-conda install hub
+conda install hub hub-alias
 ```
 
 It is possible to list all of the versions of `hub` available on your platform with:
