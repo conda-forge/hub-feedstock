@@ -26,8 +26,8 @@ test:
 outputs:
   - name: {{ name }}
     files:
-      - {{ target_gobin }}hub{{ target_goexe }}
-      - {{ os.sep.join([PREFIX, "etc", "bash_completion.d", "hub.sh"]) }}
+      - {{ PREFIX }}/bin/hub{{ target_goexe }}
+      - {{ PREFIX }}/etc/bash_completion.d/hub.sh
 
   - name: {{ name }}-alias
     script: alias/build.sh   # [unix]
