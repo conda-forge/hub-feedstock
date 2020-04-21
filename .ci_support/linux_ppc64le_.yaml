@@ -6,3 +6,5 @@ docker_image:
 - condaforge/linux-anvil-ppc64le
 go_compiler:
 - go-nocgo
+target_goexe:
+- ''
