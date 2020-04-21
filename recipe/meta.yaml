@@ -26,8 +26,8 @@ test:
 outputs:
   - name: {{ name }}
     files:
-      - bin/hub{{ target_goexe }}
-      - etc/bash_completion.d/hub.sh
+      - bin{{ os.sep }}hub{{ target_goexe }}
+      - etc{{ os.sep }}bash_completion.d{{ os.sep }}hub.sh
 
   - name: {{ name }}-alias
     script: alias/build.sh   # [unix]
