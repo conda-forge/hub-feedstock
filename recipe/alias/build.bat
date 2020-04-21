@@ -4,8 +4,8 @@ for %%F in (activate deactivate) do (
   if errorlevel 1 exit 1
 
   rem copy them to the work directory
-  copy "%RECIPE_DIR%\alias\%%F.sh" "%PREFIX%\etc\conda\%%F.d\%PKG_NAME%.sh"
+  copy "%RECIPE_DIR%\alias\%%F.sh" "%PREFIX%\etc\conda\%%F.d\hub.sh"
   if errorlevel 1 exit 1
-  copy "%RECIPE_DIR%\alias\%%F.ps1" "%PREFIX%\etc\conda\%%F.d\%PKG_NAME%.ps1"
+  copy "%RECIPE_DIR%\alias\%%F.ps1" "%PREFIX%\etc\conda\%%F.d\hub.ps1"
   if errorlevel 1 exit 1
 )
