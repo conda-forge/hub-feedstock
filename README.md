@@ -17,7 +17,21 @@ Current build status
 ====================
 
 
-<table>
+<table><tr>
+    <td>Travis</td>
+    <td>
+      <a href="https://travis-ci.com/conda-forge/hub-feedstock">
+        <img alt="macOS" src="https://img.shields.io/travis/com/conda-forge/hub-feedstock/master.svg?label=macOS">
+      </a>
+    </td>
+  </tr><tr>
+    <td>Drone</td>
+    <td>
+      <a href="https://cloud.drone.io/conda-forge/hub-feedstock">
+        <img alt="linux" src="https://img.shields.io/drone/build/conda-forge/master.svg?label=Linux">
+      </a>
+    </td>
+  </tr>
     
   <tr>
     <td>Azure</td>
@@ -35,6 +49,20 @@ Current build status
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=426&branchName=master">
                   <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/hub-feedstock?branchName=master&jobName=linux&configuration=linux_" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>linux_aarch64</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=426&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/hub-feedstock?branchName=master&jobName=linux&configuration=linux_aarch64_" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>linux_ppc64le</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=426&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/hub-feedstock?branchName=master&jobName=linux&configuration=linux_ppc64le_" alt="variant">
                 </a>
               </td>
             </tr><tr>
@@ -57,12 +85,6 @@ Current build status
       </details>
     </td>
   </tr>
-  <tr>
-    <td>Linux_ppc64le</td>
-    <td>
-      <img src="https://img.shields.io/badge/ppc64le-disabled-lightgrey.svg" alt="ppc64le disabled">
-    </td>
-  </tr>
 </table>
 
 Current release info
@@ -71,6 +93,7 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-hub-green.svg)](https://anaconda.org/conda-forge/hub) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/hub.svg)](https://anaconda.org/conda-forge/hub) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/hub.svg)](https://anaconda.org/conda-forge/hub) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/hub.svg)](https://anaconda.org/conda-forge/hub) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-hub--alias-green.svg)](https://anaconda.org/conda-forge/hub-alias) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/hub-alias.svg)](https://anaconda.org/conda-forge/hub-alias) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/hub-alias.svg)](https://anaconda.org/conda-forge/hub-alias) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/hub-alias.svg)](https://anaconda.org/conda-forge/hub-alias) |
 
 Installing hub
 ==============
@@ -81,10 +104,10 @@ Installing `hub` from the `conda-forge` channel can be achieved by adding `conda
 conda config --add channels conda-forge
 ```
 
-Once the `conda-forge` channel has been enabled, `hub` can be installed with:
+Once the `conda-forge` channel has been enabled, `hub, hub-alias` can be installed with:
 
 ```
-conda install hub
+conda install hub hub-alias
 ```
 
 It is possible to list all of the versions of `hub` available on your platform with:

@@ -9,61 +9,50 @@ package:
   version: {{ version }}
 
 source:
-  - folder: {{ pkg_src }}
-    url: https://{{ goname }}/archive/v{{ version }}.tar.gz
-    sha256: 62c977a3691c3841c8cde4906673a314e76686b04d64cab92f3e01c3d778eb6f
+  url: https://{{ goname }}/archive/v{{ version }}.tar.gz
+  sha256: 62c977a3691c3841c8cde4906673a314e76686b04d64cab92f3e01c3d778eb6f
 
 build:
   number: 0
-  script:
-    - pushd {{ pkg_src }}
-    - go install -v .
-
-    # Note the semicolons
-    -
-      bash -euf -c '                                         # [ win ]
-        etc_conda=$PREFIX/etc/conda;
-        for F in activate deactivate; do
-          mkdir -p $etc_conda/$F.d;
-          cp -v $RECIPE_DIR/$F.sh $etc_conda/$F.d/hub.sh;
-          cp -v $RECIPE_DIR/$F.ps1 $etc_conda/$F.d/hub.ps1;  # [win]
-        done;
-        mkdir -p
-          $PREFIX/etc/bash_completion.d;                 # [unix]
-          $LIBRARY_PREFIX/etc/bash_completion.d;         # [win]
-        cp etc/hub.bash_completion.sh
-          $PREFIX/etc/bash_completion.d/hub.sh;          # [unix]
-          $LIBRARY_PREFIX/etc/bash_completion.d/hub.sh;  # [win]
-      '                                                  # [win]
 
 requirements:
   build:
     - {{ compiler('go') }}
-    - m2-coreutils  # [ win ]
-    - m2-bash  # [win]
 
 test:
-  requires:
-    - m2-grep  # [ win ]
   commands:
-    -
-      bash -euf -c "                                           # [win]
-        hub version
-          | grep -q '{{ name }} version {{ version }}';
-        etc_conda=$PREFIX/etc/conda;
-        for F in activate deactivate; do
-          test -r $etc_conda/$F.d/hub.sh;
-          test -f $etc_conda/$F.d/hub.ps1;                     # [win]
-        done;
-        test -r $PREFIX/etc/bash_completion.d/hub.sh;          # [unix]
-        test -r $LIBRARY_PREFIX/etc/bash_completion.d/hub.sh;  # [win]
-      "                                                        # [win]
+    - hub version
+
+outputs:
+  - name: {{ name }}
+    files:
+      - bin/hub{{ target_goexe }}
+      - etc/bash_completion.d/hub.sh  # [unix]
+      - Library/etc/bash_completion.d/hub.sh  # [win]
+
+  - name: {{ name }}-alias
+    script: alias/build.sh   # [unix]
+    script: alias/build.bat  # [win]
+    requirements:
+      run:
+        - {{ pin_subpackage(name, exact=True) }}
+    test:
+      script: alias/test.sh   # [unix]
+      script: alias/test.bat  # [win]
+    about:
+      home: https://github.com/conda-forge/hub-feedstock
+      license: BSD-3-Clause
+      license_family: BSD
+      summary: hub's aliasing scripts
+      description: |
+        This package installs conda's (de)activate aliasing `git` to `hub`
+
 
 about:
   home: https://github.com/github/hub
   license: MIT
   license_family: MIT
-  license_file: src/github.com/github/hub/LICENSE
+  license_file: LICENSE
   summary: 'git + hub = github'
 
   description: |
