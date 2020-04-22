@@ -1,5 +1,5 @@
 {% set goname = "github.com/github/hub" %}
-{% set version = "2.14.1" %}
+{% set version = "2.14.2" %}
 
 {% set name = goname.split('/')[-1] %}
 {% set pkg_src = ('src/'+goname).replace("/",os.sep) %}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://{{ goname }}/archive/v{{ version }}.tar.gz
-  sha256: 62c977a3691c3841c8cde4906673a314e76686b04d64cab92f3e01c3d778eb6f
+  sha256: e19e0fdfd1c69c401e1c24dd2d4ecf3fd9044aa4bd3f8d6fd942ed1b2b2ad21a
 
 build:
   number: 0
@@ -31,13 +31,13 @@ outputs:
       - Library/etc/bash_completion.d/hub.sh  # [win]
 
   - name: {{ name }}-alias
-    script: alias/build.sh   # [unix]
+    script: alias/build.sh  # [unix]
     script: alias/build.bat  # [win]
     requirements:
       run:
         - {{ pin_subpackage(name, exact=True) }}
     test:
-      script: alias/test.sh   # [unix]
+      script: alias/test.sh  # [unix]
       script: alias/test.bat  # [win]
     about:
       home: https://github.com/conda-forge/hub-feedstock
@@ -53,7 +53,7 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  summary: 'git + hub = github'
+  summary: git + hub = github
 
   description: |
     hub is a command line tool that wraps git in order to extend it with
